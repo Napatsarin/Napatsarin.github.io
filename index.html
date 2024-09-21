@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -33,15 +32,6 @@
             background: #fff;
             border-radius: 5px;
         }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background: #333;
-            color: #fff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
@@ -68,59 +58,122 @@
     <h2>ความเหมือนใน OOP</h2>
     <p>1. แนวคิดหลัก:</p>
     <ul>
-        <li><strong>Encapsulation:</strong> ทุกภาษาใช้การปกป้องข้อมูลในคลาส...</li>
-        <li><strong>Inheritance:</strong> ช่วยให้สามารถสร้างคลาสใหม่จากคลาสที่มีอยู่...</li>
-        <li><strong>Polymorphism:</strong> ทำให้สามารถใช้เมธอดที่มีชื่อเดียวกันในหลายคลาส...</li>
-        <li><strong>Abstraction:</strong> ทำให้สามารถแสดงเฉพาะฟังก์ชันที่สำคัญ...</li>
+        <li><strong>Encapsulation (การห่อหุ้ม):</strong> ทุกภาษาใช้การปกป้องข้อมูลในคลาสเพื่อควบคุมการเข้าถึง</li>
+        <li><strong>Inheritance (การสืบทอด):</strong> ช่วยให้สามารถสร้างคลาสใหม่จากคลาสที่มีอยู่ โดยที่คลาสลูกจะสืบทอดคุณสมบัติและพฤติกรรมจากคลาสแม่</li>
+        <li><strong>Polymorphism (การพหุรูป):</strong> ทำให้สามารถใช้เมธอดที่มีชื่อเดียวกันในหลายคลาสได้ โดยที่แต่ละคลาสสามารถมีการดำเนินการที่แตกต่างกัน</li>
+        <li><strong>Abstraction (การทำให้เป็นนามธรรม):</strong> ทำให้สามารถแสดงเฉพาะฟังก์ชันที่สำคัญ</li>
     </ul>
-    <p>2. การสร้างคลาสและอ็อบเจ็กต์...</p>
-    <p>3. การจัดการข้อผิดพลาด...</p>
+    <p>2. สร้างคลาสและอ็อบเจ็กต์: ทุกภาษาสามารถสร้างคลาสที่ประกอบด้วยตัวแปรและฟังก์ชัน และสามารถสร้างอ็อบเจ็กต์จากคลาสนั้นได้</p>
+    <p>3. การจัดการข้อผิดพลาด: ทุกภาษาใช้กลไกในการจัดการข้อผิดพลาด เช่น การใช้ <code>try-catch</code> ใน Java และ Python หรือ <code>try-catch</code> ใน C++</p>
 </section>
 
 <section id="differences">
     <h2>ความแตกต่างใน OOP</h2>
     <p>1. ไวยากรณ์และรูปแบบการเขียน:</p>
-    <p><strong>Java:</strong> มีความเข้มงวดในการระบุชนิดข้อมูล...</p>
-    <p><strong>C++:</strong> คล้าย Java แต่มีความยืดหยุ่นมากขึ้น...</p>
-    <p><strong>Python:</strong> ใช้ไวยากรณ์ที่เรียบง่าย...</p>
+    <h3>Java</h3>
+    <p>มีความเข้มงวดในการระบุชนิดข้อมูลทุกครั้ง เช่นการประกาศตัวแปรต้องระบุชนิดอย่างชัดเจน ใช้ <code>public</code>, <code>private</code>, และ <code>protected</code> เพื่อควบคุมการเข้าถึง</p>
+    <pre><code>
+public class Animal {
+    private String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
+    public void speak() {
+        System.out.println("Animal sound");
+    }
+}
+    </code></pre>
+
+    <h3>C++</h3>
+    <p>คล้าย Java แต่มีความยืดหยุ่นมากขึ้น เช่น การใช้ pointer และการควบคุมหน่วยความจำ สามารถใช้ <code>virtual</code> เพื่อกำหนดว่าฟังก์ชันสามารถถูก override ได้</p>
+    <pre><code>
+class Animal {
+protected:
+    std::string name;
+public:
+    Animal(std::string n) : name(n) {}
+    virtual void speak() {
+        std::cout << "Animal sound" << std::endl;
+    }
+};
+    </code></pre>
+
+    <h3>Python</h3>
+    <p>ใช้ไวยากรณ์ที่เรียบง่ายและไม่ต้องระบุชนิดของตัวแปร โดยมักใช้ <code>self</code> เพื่ออ้างถึงอ็อบเจ็กต์</p>
+    <pre><code>
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        print("Animal sound")
+    </code></pre>
 
     <p>2. การจัดการหน่วยความจำ:</p>
-    <p><strong>Java:</strong> ใช้ Garbage Collection...</p>
-    <p><strong>C++:</strong> ผู้พัฒนาต้องจัดการหน่วยความจำ...</p>
-    <p><strong>Python:</strong> มีระบบการจัดการหน่วยความจำที่คล้ายกับ Java...</p>
+    <p><strong>Java:</strong> ใช้ Garbage Collection ที่ช่วยในการจัดการหน่วยความจำโดยอัตโนมัติ</p>
+    <p><strong>C++:</strong> ผู้พัฒนาต้องจัดการหน่วยความจำด้วยตนเอง เช่น การใช้ <code>new</code> และ <code>delete</code></p>
+    <p><strong>Python:</strong> มีระบบการจัดการหน่วยความจำที่คล้ายกับ Java แต่ใช้การนับ reference counting</p>
 
     <p>3. การสืบทอด:</p>
-    <p><strong>Java:</strong> รองรับการสืบทอดแบบเดี่ยว...</p>
-    <p><strong>C++:</strong> สนับสนุนการสืบทอดแบบหลายชั้น...</p>
-    <p><strong>Python:</strong> สามารถทำการสืบทอดจากหลายคลาสได้ง่าย...</p>
+    <h3>Java</h3>
+    <p>รองรับการสืบทอดแบบเดี่ยวและสามารถใช้ interfaces เพื่อสร้าง polymorphism</p>
+    <pre><code>
+interface Speakable {
+    void speak();
+}
+class Dog implements Speakable {
+    public void speak() {
+        System.out.println("Woof");
+    }
+}
+    </code></pre>
+
+    <h3>C++</h3>
+    <p>สนับสนุนการสืบทอดแบบหลายชั้น ทำให้สามารถสร้างโครงสร้างที่ซับซ้อนได้</p>
+    <pre><code>
+class Dog : public Animal {
+public:
+    void speak() override {
+        std::cout << "Woof" << std::endl;
+    }
+};
+    </code></pre>
+
+    <h3>Python</h3>
+    <p>สามารถทำการสืบทอดจากหลายคลาสได้ง่าย ทำให้ใช้ mixins และสามารถสร้างโครงสร้างที่ซับซ้อนได้</p>
+    <pre><code>
+class Dog(Animal):
+    def speak(self):
+        print("Woof")
+    </code></pre>
 
     <p>4. Polymorphism:</p>
-    <p><strong>Java:</strong> ใช้ override...</p>
-    <p><strong>C++:</strong> ใช้ virtual...</p>
-    <p><strong>Python:</strong> ใช้ dynamic typing...</p>
+    <p><strong>Java:</strong> ใช้ <code>override</code> เพื่อทำให้ฟังก์ชันในคลาสลูกสามารถแทนที่ฟังก์ชันในคลาสแม่</p>
+    <p><strong>C++:</strong> ใช้ <code>virtual</code> เพื่อทำให้ฟังก์ชันสามารถ override ได้</p>
+    <p><strong>Python:</strong> ใช้ dynamic typing ทำให้ polymorphism สามารถใช้งานได้ง่ายและยืดหยุ่น</p>
 
-    <p>5. การพัฒนาและความง่ายในการเรียนรู้...</p>
+    <p>5. การพัฒนาและความง่ายในการเรียนรู้:</p>
+    <p><strong>Java:</strong> มีไวยากรณ์ที่เข้มงวด อาจทำให้เรียนรู้ช้ากว่า</p>
+    <p><strong>C++:</strong> มีความซับซ้อนสูงกว่า เนื่องจากการจัดการหน่วยความจำ</p>
+    <p><strong>Python:</strong> มีไวยากรณ์ที่เรียบง่ายและเป็นมิตรต่อผู้เริ่มต้น</p>
 </section>
 
 <section id="java">
     <h2>Java</h2>
-    <p>เหมาะสำหรับการพัฒนาระบบขนาดใหญ่ที่ต้องการความปลอดภัย...</p>
+    <p>เหมาะสำหรับการพัฒนาระบบขนาดใหญ่ที่ต้องการความปลอดภัย และการทำงานร่วมกันในทีม มีการจัดการหน่วยความจำที่ดีและเป็นแพลตฟอร์มที่พกพาได้ง่าย</p>
 </section>
 
 <section id="cpp">
     <h2>C++</h2>
-    <p>เหมาะสำหรับการพัฒนาแอปพลิเคชันที่ต้องการประสิทธิภาพสูง...</p>
+    <p>เหมาะสำหรับการพัฒนาแอปพลิเคชันที่ต้องการประสิทธิภาพสูง เช่น เกมหรือซอฟต์แวร์ที่ต้องใช้การประมวลผลหนัก ให้การควบคุมหน่วยความจำอย่างเต็มที่ แต่ต้องการความระมัดระวังสูง</p>
 </section>
 
 <section id="python">
     <h2>Python</h2>
-    <p>เหมาะสำหรับการพัฒนาอย่างรวดเร็ว การทดลอง...</p>
+    <p>เหมาะสำหรับการพัฒนาอย่างรวดเร็ว การทดลอง และการเขียนโปรแกรมที่ต้องการความเรียบง่าย มีความยืดหยุ่นสูงและสนับสนุนการทำงานแบบเชิงวัตถุได้ดี</p>
 </section>
-
-<footer>
-    <p>© 2024 การเขียนโปรแกรมแบบ OOP</p>
-</footer>
 
 </body>
 </html>
-```
